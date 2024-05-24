@@ -53,6 +53,7 @@ The script includes error handling to manage exceptions during the transcription
 
 ## Improvements
 
+- **Need more test cases**: Basic test cases only, need flows like happy flow and sad flow cases to cover.
 - **Enhanced Error Handling**: Implement more robust error handling to cover additional edge cases and provide better user feedback.
 - **Add Logging**: Utilize logging to record essential events and information during execution. Log messages are written to a log file, ensuring a detailed history of actions performed and any encountered errors.
 - **Optimized API Usage**: Explore ways to optimize API usage, such as batching requests or implementing retry mechanisms for failed requests.
@@ -69,8 +70,44 @@ The script includes error handling to manage exceptions during the transcription
 - **Long Processing Times**: Mitigate long processing times for large audio files by implementing optimizations such as asynchronous processing or chunking the audio file into smaller segments.
 
 
+## Common Errors and Troubleshooting
+
+### 1. Transcription Request Errors
+
+- **Error:** An error occurred while submitting the transcription request.
+  - **Possible Causes:** This error may occur due to various reasons, including:
+    - Network connectivity issues preventing communication with the AssemblyAI API.
+    - Invalid API key provided in the configuration.
+    - Incorrect audio URL format or accessibility issues.
+  - **Troubleshooting Steps:**
+    - Double-check the network connection and ensure that the system can access external APIs.
+    - Verify the correctness of the API key provided in the script.
+    - Ensure that the audio URL is accessible and points to a valid audio file.
+
+### 2. Transcription Status Check Errors
+
+- **Error:** An error occurred while checking transcription status.
+  - **Possible Causes:** This error can occur if there are issues with the AssemblyAI API response or network connectivity problems during the status check process.
+  - **Troubleshooting Steps:**
+    - Check the network connection to ensure it's stable and capable of reaching external APIs.
+    - Retry the status check after a short delay in case of temporary network issues.
+
+### 3. Transcript Data Retrieval Errors
+
+- **Error:** An error occurred while retrieving transcript data.
+  - **Possible Causes:** This error may occur if the AssemblyAI API fails to provide the transcript data due to internal server errors, invalid transcript IDs, or network issues.
+  - **Troubleshooting Steps:**
+    - Verify the correctness of the transcript ID used for data retrieval.
+    - Check the network connection and retry the data retrieval process.
+
+### General Troubleshooting Tips
+
+- Ensure that the provided audio file URL is accessible and points to the correct file.
+- Double-check the API key used for authentication with the AssemblyAI API.
+- Review the error messages carefully to identify potential causes and follow the troubleshooting steps provided.
+
 ## Sample Output
- ```bash 
+    ```bash
     Transcription ID: 31a9b26a-05d9-4c03-b95c-3847cca04cc6
     Status: processing
     Status: processing
